@@ -62,6 +62,6 @@ file mkdir hw
 #write_hw_platform -force -include_bit -ext_metadata "${sourcesDir}/misc/ext_metadata.json" xilinx_ultra96_dynamic_0_1.xsa
 #validate_hw_platform xilinx_ultra96_dynamic_0_1.xsa -verbose
 write_hw_platform -force -include_bit -ext_metadata "${sourcesDir}/misc/ext_metadata.json" -file hw/hw.xsa
-combine_hw_platforms -hw hw/hw.xsa -hw_emu hw_emu/hw_emu.xsa -o xilinx_ultra96_dynamic_0_1.xsa
+combine_hw_platforms -hw hw/hw.xsa -hw_emu hw_emu/hw_emu.xsa -o xilinx_ultra96_base_dfx_202020_1.xsa
 #validate_hw_platform xilinx_ultra96_dynamic_0_1.xsa -verbose
 write_hwdef -force  -file pfm_top_wrapper.hdf
