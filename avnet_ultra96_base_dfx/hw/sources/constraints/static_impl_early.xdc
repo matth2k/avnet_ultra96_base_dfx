@@ -85,13 +85,22 @@ set_property HD.RECONFIGURABLE true [get_cells pfm_top_i/dynamic_region]
 # Dynamic region pblock
 create_pblock pblock_dynamic_region
 add_cells_to_pblock [get_pblocks pblock_dynamic_region] [get_cells -quiet [list pfm_top_i/dynamic_region]]
-resize_pblock [get_pblocks pblock_dynamic_region] -add {SLICE_X29Y0:SLICE_X48Y59}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {SLICE_X29Y0:SLICE_X48Y59}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {CFGIO_SITE_X0Y0:CFGIO_SITE_X0Y0}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {DSP48E2_X3Y0:DSP48E2_X4Y11}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {IOB_X2Y0:IOB_X2Y25}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB18_X3Y23:RAMB18_X5Y23}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB36_X3Y0:RAMB36_X5Y11}
+#resize_pblock [get_pblocks pblock_dynamic_region] -add {CLOCKREGION_X1Y0}
+
+
+resize_pblock [get_pblocks pblock_dynamic_region] -add {SLICE_X29Y0:SLICE_X47Y59 SLICE_X38Y60:SLICE_X47Y119 SLICE_X29Y120:SLICE_X47Y179 SLICE_X16Y120:SLICE_X28Y179 SLICE_X0Y120:SLICE_X15Y179}
 resize_pblock [get_pblocks pblock_dynamic_region] -add {CFGIO_SITE_X0Y0:CFGIO_SITE_X0Y0}
-resize_pblock [get_pblocks pblock_dynamic_region] -add {DSP48E2_X3Y0:DSP48E2_X4Y11}
+resize_pblock [get_pblocks pblock_dynamic_region] -add {DSP48E2_X3Y0:DSP48E2_X4Y23 DSP48E2_X3Y48:DSP48E2_X4Y71 DSP48E2_X1Y48:DSP48E2_X2Y71 DSP48E2_X0Y48:DSP48E2_X0Y71}
 resize_pblock [get_pblocks pblock_dynamic_region] -add {IOB_X2Y0:IOB_X2Y25}
-resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB18_X3Y23:RAMB18_X5Y23}
-resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB36_X3Y0:RAMB36_X5Y11}
-resize_pblock [get_pblocks pblock_dynamic_region] -add {CLOCKREGION_X1Y0}
+resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB18_X3Y0:RAMB18_X5Y23 RAMB18_X5Y24:RAMB18_X5Y47 RAMB18_X3Y48:RAMB18_X5Y71 RAMB18_X2Y48:RAMB18_X2Y71 RAMB18_X0Y48:RAMB18_X1Y71}
+resize_pblock [get_pblocks pblock_dynamic_region] -add {RAMB36_X3Y0:RAMB36_X5Y11 RAMB36_X5Y12:RAMB36_X5Y23 RAMB36_X3Y24:RAMB36_X5Y35 RAMB36_X2Y24:RAMB36_X2Y35 RAMB36_X0Y24:RAMB36_X1Y35}
+resize_pblock [get_pblocks pblock_dynamic_region] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 set_property SNAPPING_MODE ON [get_pblocks pblock_dynamic_region]
 
 
