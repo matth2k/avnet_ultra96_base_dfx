@@ -9,6 +9,8 @@ rootfs_config:
 
 linux:
 	petalinux-build
+	echo -en "/* linux */\nthe_ROM_image:\n{\n[bootloader] zynqmp_fsbl.elf\n[pmufw_image] pmufw.elf\n[destination_device=pl] system.bit\n[destination_cpu=a53-0, exception_level=el-3, trustzone] bl31.elf\n[destination_cpu=a53-0, exception_level=el-2] u-boot.elf\n}" > images/linux/linux.bif
+	cd images/linux; petalinux-package --boot --bif linux.bif
 
 xrt:
 	petalinux-config -c xrt --silentconfig
@@ -25,6 +27,7 @@ sw_comp:
 	mkdir -p $(SW_COMP_DIR)
 	cp -rf $(PLATFORM_SW_SRC) ${SW_COMP_DIR}
 	cp -f images/linux/boot.scr ${SW_COMP_DIR}/platform/image/boot.scr
+	cp -f images/linux/BOOT.BIN ${SW_COMP_DIR}/platform/image/BOOT.BIN
 	cp -f images/linux/bl31.elf ${SW_COMP_DIR}/platform/boot/bl31.elf
 	cp -f images/linux/u-boot.elf ${SW_COMP_DIR}/platform/boot/u-boot.elf
 	cp -f images/linux/pmufw.elf ${SW_COMP_DIR}/platform/boot/pmufw.elf
